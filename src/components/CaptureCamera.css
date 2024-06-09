@@ -1,0 +1,23 @@
+/* src/components/CaptureCamera.css */
+.camera-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.camera {
+    width: 100%;
+    height: auto;
+    max-width: 640px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.capture-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}

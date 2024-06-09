@@ -1,7 +1,9 @@
+// src/components/CaptureCamera.js
 import React, { useRef, useCallback, useState, useEffect } from 'react';
 import Webcam from 'react-webcam';
+import './CaptureCamera.css';
 
-const CameraCapture = () => {
+const CaptureCamera = () => {
     const webcamRef = useRef(null);
     const [isMobile, setIsMobile] = useState(false);
 
@@ -24,16 +26,17 @@ const CameraCapture = () => {
     };
 
     return (
-        <div>
+        <div className="camera-container">
             <Webcam
                 audio={false}
                 ref={webcamRef}
                 screenshotFormat="image/jpeg"
                 videoConstraints={videoConstraints}
+                className="camera"
             />
-            <button onClick={capture}>Capture photo</button>
+            <button onClick={capture} className="capture-button">Capture photo</button>
         </div>
     );
 };
 
-export default CameraCapture;
+export default CaptureCamera;
