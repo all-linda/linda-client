@@ -1,2 +1,0 @@
-# linda-client
-react web

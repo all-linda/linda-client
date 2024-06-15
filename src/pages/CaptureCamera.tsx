@@ -1,20 +1,21 @@
-// src/components/CaptureCamera.js
 import React, { useRef, useCallback, useState, useEffect } from 'react';
 import Webcam from 'react-webcam';
-import './CaptureCamera.css';
+import '../style/CaptureCamera.css';
 
-const CaptureCamera = () => {
-    const webcamRef = useRef(null);
-    const [isMobile, setIsMobile] = useState(false);
+const CaptureCamera: React.FC = () => {
+    const webcamRef = useRef<Webcam>(null);
+    const [isMobile, setIsMobile] = useState<boolean>(false);
 
     const capture = useCallback(() => {
-        const imageSrc = webcamRef.current.getScreenshot();
-        console.log(imageSrc);
+        const imageSrc = webcamRef.current?.getScreenshot();
+        if (imageSrc) {
+            console.log(imageSrc);
+        }
     }, [webcamRef]);
 
     useEffect(() => {
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        if (/android|iPad|iPhone|iPod/.test(userAgent.toLowerCase())) {
+        const userAgent = navigator.userAgent || (navigator as any).vendor || (window as any).opera;
+        if (/android|iPad|iPhone|iPod/i.test(userAgent.toLowerCase())) {
             setIsMobile(true);
         }
     }, []);
